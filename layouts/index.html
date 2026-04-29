@@ -3,44 +3,74 @@
 <!-- HERO SECTION -->
 <section class="hero">
   <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
-    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-      <span style="background: rgba(14,165,233,0.2); color: #38bdf8; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Science-Backed</span>
-      <span style="background: rgba(139,92,246,0.2); color: #a78bfa; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">2026 Updated</span>
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+      <span style="background: rgba(14,165,233,0.2); color: #38bdf8; padding: 5px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Science-Backed</span>
+      <span style="background: rgba(139,92,246,0.2); color: #a78bfa; padding: 5px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">2026 Updated</span>
     </div>
     <h1>Optimize Your Recovery.<br>Evidence-Based Biohacking Guides.</h1>
     <p>We combine peer-reviewed research with hands-on testing to help you make informed decisions about cold plunge tubs, red light therapy devices, NAD+ supplements, and recovery tools.</p>
-    <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-      <a href="/categories/cold-plunge/" style="background: #0ea5e9; color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(14,165,233,0.3);">🧊 Cold Plunge Guides</a>
-      <a href="/categories/red-light-therapy/" style="background: rgba(255,255,255,0.1); color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;">🔴 Red Light Therapy</a>
-      <a href="/categories/nad-supplements/" style="background: rgba(255,255,255,0.1); color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;">💊 NAD Supplements</a>
+    <div style="display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap;">
+      <a href="/categories/cold-plunge/" class="hero-btn-primary">🧊 Cold Plunge Guides</a>
+      <a href="/categories/red-light-therapy/" class="hero-btn-secondary">🔴 Red Light Therapy</a>
+      <a href="/categories/nad-supplements/" class="hero-btn-secondary">💊 NAD Supplements</a>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div style="display: flex; justify-content: center; gap: 40px; padding: 24px 0; margin-bottom: 32px; border-bottom: 1px solid var(--border); flex-wrap: wrap;">
-  <div style="text-align: center;">
-    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">50+</div>
-    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Studies Reviewed</div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-number">50+</div>
+    <div class="trust-label">Studies Reviewed</div>
   </div>
-  <div style="text-align: center;">
-    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">30+</div>
-    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Products Tested</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-number">30+</div>
+    <div class="trust-label">Products Tested</div>
   </div>
-  <div style="text-align: center;">
-    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">10K+</div>
-    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Monthly Readers</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-number">10K+</div>
+    <div class="trust-label">Monthly Readers</div>
   </div>
-  <div style="text-align: center;">
-    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">100%</div>
-    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Evidence-Based</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <div class="trust-number">100%</div>
+    <div class="trust-label">Evidence-Based</div>
   </div>
 </div>
 
+<!-- CATEGORY CARDS -->
+<div class="section-header">
+  <h2>Browse by Category</h2>
+  <p>Deep-dive guides organized by topic</p>
+</div>
+
+<div class="category-grid">
+  <a href="/categories/cold-plunge/" class="category-card category-cold">
+    <div class="category-icon">🧊</div>
+    <div class="category-name">Cold Plunge</div>
+    <div class="category-desc">Ice bath reviews, buying guides, and cold therapy science</div>
+    <div class="category-count">{{ len (where .Site.RegularPages "Params.categories" "intersect" (slice "Cold Plunge")) }} articles</div>
+  </a>
+  <a href="/categories/red-light-therapy/" class="category-card category-red">
+    <div class="category-icon">🔴</div>
+    <div class="category-name">Red Light Therapy</div>
+    <div class="category-desc">Device reviews, treatment protocols, and clinical research</div>
+    <div class="category-count">{{ len (where .Site.RegularPages "Params.categories" "intersect" (slice "Red Light Therapy")) }} articles</div>
+  </a>
+  <a href="/categories/nad-supplements/" class="category-card category-nad">
+    <div class="category-icon">💊</div>
+    <div class="category-name">NAD Supplements</div>
+    <div class="category-desc">NMN, NR, and NAD+ supplement reviews and dosage guides</div>
+    <div class="category-count">{{ len (where .Site.RegularPages "Params.categories" "intersect" (slice "NAD Supplements")) }} articles</div>
+  </a>
+</div>
+
 <!-- LATEST GUIDES -->
-<div style="margin-bottom: 16px;">
-  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Latest Guides & Reviews</h2>
-  <p style="color: var(--text-secondary); font-size: 0.95rem;">Our most recent in-depth articles and product reviews</p>
+<div class="section-header">
+  <h2>Latest Guides & Reviews</h2>
+  <p>Our most recent in-depth articles and product reviews</p>
 </div>
 
 {{ $pages := where .Site.RegularPages "Section" "!=" "" }}
@@ -55,9 +85,9 @@
     <p>{{ $page.Summary | truncate 200 }}</p>
   </section>
   <footer class="post-meta">
-    <span>📅 {{ $page.Date.Format "Jan 2, 2006" }}</span>
+    <span class="meta-date">📅 {{ $page.Date.Format "Jan 2, 2006" }}</span>
     {{ if $page.Params.categories }}
-    <span>📂 {{ range $i, $cat := $page.Params.categories }}{{ if $i }}, {{ end }}{{ $cat }}{{ end }}</span>
+    <span class="meta-cat">📂 {{ range $i, $cat := $page.Params.categories }}{{ if $i }}, {{ end }}{{ $cat }}{{ end }}</span>
     {{ end }}
     {{ with $page.Params.tags }}
     <div class="post-tags">
@@ -69,5 +99,48 @@
   </footer>
 </article>
 {{ end }}
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-icon">📬</div>
+    <h2>Get Weekly Biohacking Updates</h2>
+    <p>Join 5,000+ readers. No spam, just evidence-based recovery tips, product deals, and new research summaries.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address" class="newsletter-input" disabled>
+      <button class="newsletter-btn" disabled>Subscribe</button>
+    </div>
+    <p class="newsletter-note">🔒 We respect your privacy. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section class="trust-section">
+  <div class="section-header">
+    <h2>Why Trust BioHacking Recovery?</h2>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-card-icon">🔬</div>
+      <h3>Research-First Approach</h3>
+      <p>Every claim is backed by peer-reviewed studies. We cite our sources and link to original research.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">🧪</div>
+      <h3>Hands-On Testing</h3>
+      <p>We test products ourselves whenever possible, not just regurgitate marketing materials.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">💡</div>
+      <h3>Transparent Reviews</h3>
+      <p>We disclose affiliate relationships and never accept payment for positive reviews. Honest opinions only.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">📊</div>
+      <h3>Data-Driven</h3>
+      <p>We use real metrics — CPC data, clinical studies, user feedback — not hype or anecdotal evidence.</p>
+    </div>
+  </div>
+</section>
 
 {{ end }}

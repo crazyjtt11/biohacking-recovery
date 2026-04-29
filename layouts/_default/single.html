@@ -1,0 +1,78 @@
+{{ define "main" }}
+<article class="post-full">
+  <header class="post-full-header">
+    {{ with .Params.categories }}
+    <div class="post-categories">
+      {{ range . }}
+      <a href="{{ "categories/" | absURL }}{{ . | urlize }}/" class="post-cat-badge">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+    <h1 class="post-full-title">{{ .Title }}</h1>
+    <p class="post-full-subtitle">{{ .Description }}</p>
+    <div class="post-full-meta">
+      <span>📅 {{ .Date.Format "January 2, 2006" }}</span>
+      {{ with .Params.author }}<span>✍️ {{ . }}</span>{{ end }}
+      <span>📖 {{ .WordCount }} words · {{ div .WordCount 200 }} min read</span>
+    </div>
+  </header>
+
+  {{ with .Params.tags }}
+  <div class="post-full-tags">
+    {{ range . }}
+    <a href="{{ "tags/" | absURL }}{{ . | urlize }}/">#{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <!-- AFFILIATE DISCLAIMER -->
+  <div class="affiliate-disclaimer">
+    <strong>Disclosure:</strong> Some links in this article are affiliate links. If you purchase through these links, we may earn a commission at no extra cost to you. This helps us keep producing free, high-quality content.
+  </div>
+
+  <!-- SHARE -->
+  <div class="post-share">
+    <span>Share this article:</span>
+    <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" target="_blank" rel="noopener">Twitter</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}" target="_blank" rel="noopener">Reddit</a>
+  </div>
+
+  <!-- RELATED ARTICLES -->
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <section class="related-articles">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      {{ range . }}
+      <a href="{{ .RelPermalink }}" class="related-card">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Summary | truncate 100 }}</p>
+        <span class="related-meta">{{ .Date.Format "Jan 2, 2006" }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- NAVIGATION -->
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .RelPermalink }}" class="post-nav-prev">
+      <span class="post-nav-label">← Previous</span>
+      <span class="post-nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .RelPermalink }}" class="post-nav-next">
+      <span class="post-nav-label">Next →</span>
+      <span class="post-nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </nav>
+</article>
+{{ end }}
