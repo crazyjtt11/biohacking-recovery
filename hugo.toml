@@ -2,7 +2,8 @@ baseURL = "https://biohacking-recovery.netlify.app/"
 languageCode = "en-us"
 title = "BioHacking Recovery - Cold Plunge, Red Light Therapy & NAD Guides"
 theme = "PaperMod"
-paginate = 10
+[pagination]
+  pagerSize = 10
 enableRobotsTXT = true
 
 [params]

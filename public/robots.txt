@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://biohacking-recovery.netlify.app/sitemap.xml
