@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://69f1e5a9d6a09a0f8cc2fbd5--classy-cobbler-f48e70.netlify.app/sitemap.xml
+Sitemap: https://classy-cobbler-f48e70.netlify.app/sitemap.xml
