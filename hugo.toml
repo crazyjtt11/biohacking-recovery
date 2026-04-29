@@ -1,14 +1,15 @@
-baseURL = "https://biohacking-recovery.netlify.app/"
+baseURL = "https://69f1e5a9d6a09a0f8cc2fbd5--classy-cobbler-f48e70.netlify.app/"
 languageCode = "en-us"
-title = "BioHacking Recovery - Cold Plunge, Red Light Therapy & NAD Guides"
+title = "BioHacking Recovery"
 theme = "PaperMod"
+enableRobotsTXT = true
+
 [pagination]
   pagerSize = 10
-enableRobotsTXT = true
 
 [params]
   env = "production"
-  description = "Evidence-based guides on cold plunge, red light therapy, NAD supplements, and biohacking recovery tools. Reviews, science, and buying guides."
+  description = "Evidence-based guides on cold plunge, red light therapy, NAD supplements, and biohacking recovery tools."
   keywords = ["cold plunge", "red light therapy", "NAD supplement", "biohacking", "recovery", "cold tub", "infrared therapy"]
   author = "BioHacking Recovery Team"
   defaultTheme = "light"
@@ -26,42 +27,53 @@ enableRobotsTXT = true
   hideSummary = false
   showtoc = true
 
-  [[params.socialIcons]]
-    name = "twitter"
-    url = "https://twitter.com/"
-
   [params.homeInfoParams]
     Title = "🔬 BioHacking Recovery"
     Content = "Evidence-based guides on cold plunge therapy, red light therapy, NAD+ supplements, and the latest biohacking recovery tools. Science-backed reviews and buying guides to optimize your recovery."
 
   [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/"
+
+  [[params.socialIcons]]
     name = "github"
     url = "https://github.com/crazyjtt11"
+
+  [params.label]
+    text = "BioHacking Recovery"
+    icon = "🔬"
+
+  [params.assets]
+    disableFingerprinting = true
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
 
 [menu]
   [[menu.main]]
     identifier = "cold-plunge"
-    name = "Cold Plunge"
+    name = "🧊 Cold Plunge"
     url = "/categories/cold-plunge/"
     weight = 10
   [[menu.main]]
     identifier = "red-light"
-    name = "Red Light Therapy"
+    name = "🔴 Red Light Therapy"
     url = "/categories/red-light-therapy/"
     weight = 20
   [[menu.main]]
     identifier = "nad"
-    name = "NAD Supplements"
+    name = "💊 NAD Supplements"
     url = "/categories/nad-supplements/"
     weight = 30
   [[menu.main]]
     identifier = "reviews"
-    name = "Reviews"
+    name = "⭐ Reviews"
     url = "/categories/reviews/"
     weight = 40
   [[menu.main]]
     identifier = "search"
-    name = "Search"
+    name = "🔍 Search"
     url = "/search/"
     weight = 50
 

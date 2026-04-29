@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+      <span style="background: rgba(14,165,233,0.2); color: #38bdf8; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Science-Backed</span>
+      <span style="background: rgba(139,92,246,0.2); color: #a78bfa; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">2026 Updated</span>
+    </div>
+    <h1>Optimize Your Recovery.<br>Evidence-Based Biohacking Guides.</h1>
+    <p>We combine peer-reviewed research with hands-on testing to help you make informed decisions about cold plunge tubs, red light therapy devices, NAD+ supplements, and recovery tools.</p>
+    <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+      <a href="/categories/cold-plunge/" style="background: #0ea5e9; color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(14,165,233,0.3);">🧊 Cold Plunge Guides</a>
+      <a href="/categories/red-light-therapy/" style="background: rgba(255,255,255,0.1); color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;">🔴 Red Light Therapy</a>
+      <a href="/categories/nad-supplements/" style="background: rgba(255,255,255,0.1); color: #fff; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;">💊 NAD Supplements</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div style="display: flex; justify-content: center; gap: 40px; padding: 24px 0; margin-bottom: 32px; border-bottom: 1px solid var(--border); flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">50+</div>
+    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Studies Reviewed</div>
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">30+</div>
+    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Products Tested</div>
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">10K+</div>
+    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Monthly Readers</div>
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">100%</div>
+    <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">Evidence-Based</div>
+  </div>
+</div>
+
+<!-- LATEST GUIDES -->
+<div style="margin-bottom: 16px;">
+  <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Latest Guides & Reviews</h2>
+  <p style="color: var(--text-secondary); font-size: 0.95rem;">Our most recent in-depth articles and product reviews</p>
+</div>
+
+{{ $pages := where .Site.RegularPages "Section" "!=" "" }}
+{{ range $index, $page := $pages }}
+<article class="post-entry" {{ with $page.Params.categories }}data-category="{{ index . 0 | urlize }}"{{ end }}>
+  <header class="entry-header">
+    <h2>
+      <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>{{ $page.Summary | truncate 200 }}</p>
+  </section>
+  <footer class="post-meta">
+    <span>📅 {{ $page.Date.Format "Jan 2, 2006" }}</span>
+    {{ if $page.Params.categories }}
+    <span>📂 {{ range $i, $cat := $page.Params.categories }}{{ if $i }}, {{ end }}{{ $cat }}{{ end }}</span>
+    {{ end }}
+    {{ with $page.Params.tags }}
+    <div class="post-tags">
+      {{ range . }}
+      <a href="{{ "tags/" | absURL }}{{ . | urlize }}/">#{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </footer>
+</article>
+{{ end }}
+
+{{ end }}
